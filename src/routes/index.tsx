@@ -1,12 +1,23 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 import Counter from "~/components/starter/counter/counter";
 import Hero from "~/components/starter/hero/hero";
 import Infobox from "~/components/starter/infobox/infobox";
 import Starter from "~/components/starter/next-steps/next-steps";
+import { useAuthSession } from "./plugin@auth";
+import Signin from "~/components/auth/signin";
+import Signout from "~/components/auth/signout";
 
 export default component$(() => {
+  const session = useAuthSession();
+
+  useTask$(() => {
+    console.log("task session", session);
+  });
+
+  console.log("session", session);
+  // return <p>{session.value?.user?.email}</p>;
   return (
     <>
       <Hero />
@@ -23,6 +34,27 @@ export default component$(() => {
         <Counter />
       </div>
 
+      {!session.value?.user ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "4rem",
+          }}
+        >
+          <Signin />
+        </div>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "4rem",
+          }}
+        >
+          <Signout />
+        </div>
+      )}
       <div class="container container-flex">
         <Infobox>
           <div q:slot="title" class="icon icon-cli">
