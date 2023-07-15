@@ -8,7 +8,7 @@ export default component$(() => {
   // useTask$(() => {
   //   console.log("task count", count.value);
   // });
-  // console.log("count", count.value);
+  console.log("count", count.value);
 
   const setCount = $((newValue: number) => {
     if (newValue < 0 || newValue > 100) {
