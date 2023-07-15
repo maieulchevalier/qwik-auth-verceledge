@@ -22,14 +22,6 @@ export const onGet: RequestHandler = async (event) => {
   console.log("get");
 };
 
-export const onRequest: RequestHandler = () => {
-  // const session: Session | null = event.sharedMap.get("session");
-  console.log("request");
-  // if (!session || new Date(session.expires) < new Date()) {
-  //   throw event.redirect(302, `/api/auth/signin`);
-  // }
-};
-
 export const useServerTimeLoader = routeLoader$(() => {
   return {
     date: new Date().toISOString(),
