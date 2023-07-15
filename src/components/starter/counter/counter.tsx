@@ -5,6 +5,11 @@ import Gauge from "../gauge";
 export default component$(() => {
   const count = useSignal(70);
 
+  // useTask$(() => {
+  //   console.log("task count", count.value);
+  // });
+  // console.log("count", count.value);
+
   const setCount = $((newValue: number) => {
     if (newValue < 0 || newValue > 100) {
       return;

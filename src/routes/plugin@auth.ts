@@ -12,4 +12,5 @@ export const { onRequest, useAuthSession, useAuthSignin, useAuthSignout } =
         clientSecret: env.get("DISCORD_CLIENT_SECRET")!,
       }),
     ] as Provider[],
+
   }));

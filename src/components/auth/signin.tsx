@@ -8,7 +8,6 @@ export default component$(() => {
       onClick$={() =>
         signIn.submit({
           providerId: "discord",
-          options: { callbackUrl: "/" },
         })
       }
     >

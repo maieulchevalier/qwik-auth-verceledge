@@ -6,9 +6,7 @@ export default component$(() => {
   return (
     <button
       onClick$={() => {
-        signOut.submit({ callbackUrl: "/demo/todolist" }).then(() => {
-          window.location.reload();
-        });
+        signOut.submit({ callbackUrl: "/demo/todolist" });
       }}
     >
       Sign Out
